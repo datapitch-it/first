@@ -1,4 +1,4 @@
-Thanks for downloading this template!
+Courtesy of:
 
 Template Name: FlexStart
 Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
