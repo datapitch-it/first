@@ -34,6 +34,29 @@
   ],
   "items": [
     {
+      "title": "Climate Analysis: Is Italy Warming Up?",
+      "file": "Tommaso Arone Climate Change.pdf",
+      "keywords": "climate analysis italy warming up tommaso arone data visualization project historical trends seasonal dynamics thermal anomalies 1901 2024 world bank climate knowledge portal temperature mean near-surface air tas tasmax tasmin seasonal mean temperatures summer spring autumn winter extreme warm days tx90p extreme cold days tn10p 90th percentile 10th percentile heating effect transitional seasons vertical translation rate of change moving averages 10-year window descriptive statistics trend analysis comparative analysis italy france spain belgium mediterranean oceanic cycles spatial analysis choropleth map global seasonal distribution python pandas numpy matplotlib seaborn plotly api data collection open data cc-by-sa",
+      "author": "Tommaso Arone",
+      "description": "A data-driven journey through Italy's historical climate trends (1901-2024), analyzing seasonal dynamics, thermal anomalies, extreme temperature events, and European comparisons using World Bank Climate Knowledge Portal data.",
+      "uploaded": "2026-02-07T12:00:00",
+      "tags": [
+        "python",
+        "pandas",
+        "numpy",
+        "matplotlib",
+        "open-data",
+        "climate",
+        "italy",
+        "global",
+        "time-series",
+        "geospatial",
+        "visualization",
+        "statistics",
+        "eda"
+      ]
+    },
+    {
       "title": "The Cost of Wealth: How Top 20 Economies' Growth Shapes Global CO2 Emissions",
       "file": "Student Individual Assignment_Selim Akpunar_Cost of the wealth_DV project.pdf",
       "keywords": "cost of wealth top 20 economies growth global co2 emissions carbon dioxide gdp mehmet selim akpunar decoupling economic prosperity environmental sustainability imf international monetary fund our world in data owid 2003 2023 united states china germany japan india united kingdom france italy brazil canada russia south korea mexico australia spain indonesia saudi arabia turkey netherlands switzerland european green deal net zero emissions reduction datawrapper knime python pandas matplotlib seaborn data visualization bar chart scatter plot correlation trend analysis open data csv",
