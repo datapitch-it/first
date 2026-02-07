@@ -575,6 +575,14 @@
 
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
+    function slugify(text) {
+      return text.toString().toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+    }
+
     function createCard(entry) {
       var col = document.createElement('div');
       col.className = 'col-xl-3 col-lg-4 col-md-4 col-6 portfolio-item';
@@ -584,6 +592,7 @@
       col.dataset.tags = (entry.tags || []).join(',');
 
       var pdfPath = PDF_BASE + encodeURIComponent(entry.file);
+      var slug = slugify(entry.title);
       var authorHtml = entry.author
         ? '<span class="portfolio-card-author">' + entry.author + '</span>'
         : '';
@@ -591,7 +600,7 @@
         ? '<p class="portfolio-card-description">' + entry.description + '</p>'
         : '';
       col.innerHTML =
-        '<a href="#" class="portfolio-card" data-pdf="' + pdfPath + '" data-title="' + (entry.title || '').replace(/"/g, '&quot;') + '">' +
+        '<a href="#" class="portfolio-card" data-pdf="' + pdfPath + '" data-title="' + (entry.title || '').replace(/"/g, '&quot;') + '" data-slug="' + slug + '">' +
           '<div class="thumbnail-wrapper">' +
             '<canvas class="pdf-thumbnail"></canvas>' +
             '<div class="thumbnail-overlay"><i class="bi bi-file-earmark-pdf"></i></div>' +
@@ -605,29 +614,33 @@
 
       col.querySelector('a').addEventListener('click', function(e) {
         e.preventDefault();
-        openPdfModal(this.dataset.pdf, this.dataset.title);
+        openPdfModal(this.dataset.pdf, this.dataset.title, this.dataset.slug);
       });
 
       return col;
     }
 
-    function openPdfModal(pdfUrl, title) {
+    function openPdfModal(pdfUrl, title, slug) {
       document.getElementById('pdfModalTitle').textContent = title;
       document.getElementById('pdfModalFrame').src = pdfUrl;
       var modal = new bootstrap.Modal(document.getElementById('pdfModal'));
       modal.show();
+      if (slug) {
+        history.pushState(null, '', '#pdf/' + slug);
+      }
     }
 
-    // Clear iframe when modal closes to stop loading
+    // Clear iframe and restore URL when modal closes
     document.getElementById('pdfModal').addEventListener('hidden.bs.modal', function() {
       document.getElementById('pdfModalFrame').src = '';
+      history.pushState(null, '', window.location.pathname);
     });
 
     function renderThumbnail(card) {
       var link = card.querySelector('a');
       var pdfUrl = link.dataset.pdf;
       var canvas = card.querySelector('.pdf-thumbnail');
-      var ctx = canvas.getContext('2d');
+      var ctx = canvas.getContext('2d', { willReadFrequently: true });
 
       pdfjsLib.getDocument(pdfUrl).promise.then(function(pdf) {
         return pdf.getPage(1);
@@ -732,6 +745,30 @@
       });
     }
 
+    function openFromHash() {
+      var hash = window.location.hash;
+      if (hash.indexOf('#pdf/') === 0) {
+        var slug = hash.substring(5);
+        var link = document.querySelector('.portfolio-card[data-slug="' + slug + '"]');
+        if (link) {
+          openPdfModal(link.dataset.pdf, link.dataset.title, link.dataset.slug);
+        }
+      }
+    }
+
+    window.addEventListener('popstate', function() {
+      var hash = window.location.hash;
+      if (hash.indexOf('#pdf/') === 0) {
+        openFromHash();
+      } else {
+        var modalEl = document.getElementById('pdfModal');
+        var modalInstance = bootstrap.Modal.getInstance(modalEl);
+        if (modalInstance) {
+          modalInstance.hide();
+        }
+      }
+    });
+
     fetch(PORTFOLIO_JSON)
       .then(function(res) { return res.json(); })
       .then(function(data) {
@@ -745,6 +782,8 @@
           grid.appendChild(card);
           renderThumbnail(card);
         });
+        // Auto-open PDF if hash is present on page load
+        openFromHash();
       })
       .catch(function(err) {
         grid.innerHTML = '<div class="col-12 text-center text-muted">Failed to load portfolio data.</div>';
