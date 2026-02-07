@@ -1,0 +1,236 @@
+{
+  "tags": [
+    "kaggle",
+    "python",
+    "pandas",
+    "numpy",
+    "matplotlib",
+    "rstudio",
+    "tableau",
+    "ggplot",
+    "statsbomb",
+    "fbref",
+    "eda",
+    "visualization",
+    "statistics",
+    "time-series",
+    "geospatial",
+    "economics",
+    "trade",
+    "healthcare",
+    "energy",
+    "climate",
+    "transportation",
+    "sports",
+    "social-media",
+    "open-data",
+    "italy",
+    "global",
+    "ecb",
+    "dashboard",
+    "csv",
+    "tourism",
+    "eurostat"
+  ],
+  "items": [
+    {
+      "title": "The Cost of Wealth: How Top 20 Economies' Growth Shapes Global CO2 Emissions",
+      "file": "Student Individual Assignment_Selim Akpunar_Cost of the wealth_DV project.pdf",
+      "keywords": "cost of wealth top 20 economies growth global co2 emissions carbon dioxide gdp mehmet selim akpunar decoupling economic prosperity environmental sustainability imf international monetary fund our world in data owid 2003 2023 united states china germany japan india united kingdom france italy brazil canada russia south korea mexico australia spain indonesia saudi arabia turkey netherlands switzerland european green deal net zero emissions reduction datawrapper knime python pandas matplotlib seaborn data visualization bar chart scatter plot correlation trend analysis open data csv",
+      "author": "Mehmet Selim Akpunar",
+      "description": "Exploring the correlation between GDP growth and CO2 emissions across the world's top 20 economies (2003-2023), using IMF and Our World in Data sources to investigate decoupling trends.",
+      "uploaded": "2026-02-07T10:00:00",
+      "tags": [
+        "python",
+        "pandas",
+        "matplotlib",
+        "open-data",
+        "climate",
+        "economics",
+        "visualization",
+        "eda",
+        "statistics",
+        "global",
+        "csv"
+      ]
+    },
+    {
+      "title": "The EU Tourism: Journey Through Crisis and Resilience",
+      "file": "Presentation - The EU Tourism Phoenix.pdf",
+      "keywords": "eu tourism journey crisis resilience saad ur rehman baig covid-19 pandemic recovery 2019 2024 eurostat official tourism statistics european union member states 27 countries accommodation hotels rentals camping sector transformation domestic international tourist arrivals recovery trajectory baseline pre-pandemic seasonal decomposition monthly performance comparison golden age great collapse recovery milestones breakthrough renaissance denmark cyprus malta greece spain portugal country performance python pandas matplotlib seaborn plotly data visualization geospatial choropleth map bar chart time series analysis open data reproducible",
+      "author": "Saad Ur Rehman Baig",
+      "description": "Analyzing how EU tourism recovered from the COVID-19 pandemic across 27 member states (2019-2024), using Eurostat data to explore country performance, accommodation sector shifts, and seasonal patterns with Python visualizations.",
+      "uploaded": "2026-02-06T10:00:00",
+      "tags": [
+        "python",
+        "pandas",
+        "matplotlib",
+        "eurostat",
+        "open-data",
+        "tourism",
+        "visualization",
+        "time-series",
+        "geospatial",
+        "statistics",
+        "eda",
+        "global"
+      ]
+    },
+    {
+      "title": "Locating Critical Threats in the Noise of Los Angeles",
+      "file": "Data Visualization Pitch Brasca.pdf",
+      "keywords": "los angeles crime data lapd police department spatiotemporal analysis 2020 2024 high harm hotspots danger score severity frequency critical threats violence robbery assault battery weapons domestic burglary theft larceny vehicle property damage vandalism time windows morning afternoon evening night areas neighborhoods power bi python pandas numpy matplotlib seaborn missingno data cleaning imputation normalization feature engineering open data cc0 public domain city policy analysts planners journalists citizens safety",
+      "author": "Federica Brasca",
+      "description": "A spatiotemporal analysis of LAPD crime data (2020-2024) that decouples incident frequency from severity to identify high-harm hotspots, using Python for data processing and Power BI for interactive dashboards.",
+      "uploaded": "2026-02-05T10:00:00",
+      "tags": [
+        "python",
+        "pandas",
+        "numpy",
+        "matplotlib",
+        "open-data",
+        "geospatial",
+        "time-series",
+        "visualization",
+        "dashboard",
+        "statistics"
+      ]
+    },
+    {
+      "title": "Aesthetics vs Efficiency: Is the Beautiful Game a Trap?",
+      "file": "LorenzoTriolo-DataViz.pdf",
+      "keywords": "aesthetics efficiency beautiful game football soccer serie a 2024 2025 season ball possession playing well winning italian dilemma giochisti risultatisti como napoli antonio conte xg expected goals npxg sca90 shot creating actions xga defense fbref statsbomb data visualization",
+      "author": "Lorenzo Triolo",
+      "description": "A data-driven analysis of Serie A 2024/25 exploring whether ball possession dominance leads to success, using FBref/StatsBomb metrics like xG, npxG, and SCA.",
+      "uploaded": "2026-02-04T16:00:00",
+      "tags": [
+        "statsbomb",
+        "fbref",
+        "sports",
+        "visualization",
+        "statistics",
+        "italy",
+        "eda"
+      ]
+    },
+    {
+      "title": "From Natural Hazards to Human Impact: A Trend Analysis of Global Disasters (2018–2024)",
+      "file": "Syed Muhammad Shoaib-Data Visualization Project Report-946917.pdf",
+      "keywords": "natural hazards human impact trend analysis global disasters 2018 2024 syed muhammad shoaib disaster frequency continent asia europe north america south america africa oceania earthquakes floods hurricanes wildfires extreme heat storm surges severity index casualties economic loss response time recovery duration kaggle dataset country latitude longitude",
+      "author": "Syed Muhammad Shoaib",
+      "description": "Analyzing global disaster frequency and impact across continents from 2018 to 2024, examining severity, casualties, economic loss, and response metrics.",
+      "uploaded": "2026-02-04T14:00:00",
+      "tags": [
+        "kaggle",
+        "geospatial",
+        "climate",
+        "visualization",
+        "statistics",
+        "eda",
+        "global"
+      ]
+    },
+    {
+      "title": "Mental Health Social Media Indicators",
+      "file": "A. Student Individual Assignment.pdf",
+      "keywords": "mental health social media indicators asmi mahesh patole data visualization pitch screen time anxiety stress level mood negative positive interactions sleep hours physical activity daily kaggle dataset impact cyber bullying youngsters",
+      "author": "Asmi Mahesh Patole",
+      "description": "Exploring the relationship between social media usage, screen time behavior, and mental health indicators like anxiety, stress, and mood using a Kaggle dataset.",
+      "uploaded": "2026-02-04T11:00:00",
+      "tags": [
+        "kaggle",
+        "social-media",
+        "healthcare",
+        "visualization",
+        "eda",
+        "statistics",
+        "python"
+      ]
+    },
+    {
+      "title": "Evolution of Total Road Accidents in Italy (2001–2018)",
+      "file": "Accident_Evolution_In_Italy_Ppt_DavinaDavid(946851).pdf",
+      "keywords": "evolution total road accidents italy 2001 2018 davina david vehicle type region mit open data ministry infrastructure transport csv xls italian regions macro areas north center south risk year accident count vehicles involvement data quality cleaning aggregated regional level",
+      "author": "Davina David",
+      "description": "Investigating how road accidents and vehicle involvement evolved in Italy from 2001 to 2018, using open data from the Ministry of Infrastructure and Transport.",
+      "uploaded": "2026-02-04T09:00:00",
+      "tags": [
+        "open-data",
+        "italy",
+        "transportation",
+        "time-series",
+        "visualization",
+        "csv",
+        "statistics"
+      ]
+    },
+    {
+      "title": "Italy's Stable Export Advantage Map (2013–2024)",
+      "file": "italy final 04022026.pdf",
+      "keywords": "italy stable export advantage map 2013 2024 symmetric rca rsca partner absorption value impact market typologies trademap statistics official database itc researchers policymakers analyze global flows structures specialization patterns",
+      "author": "Mahsa Rajabi Nejad",
+      "description": "Mapping Italy's revealed comparative advantages in trade with EU partners from 2013 to 2024, using symmetric RCA indicators and TradeMap data.",
+      "uploaded": "2026-02-03T16:00:00",
+      "tags": [
+        "python",
+        "pandas",
+        "numpy",
+        "matplotlib",
+        "economics",
+        "trade",
+        "visualization"
+      ]
+    },
+    {
+      "title": "Solar Energy Power Generation Analysis",
+      "file": "Solar Energy Power Generation Analysis.pdf",
+      "keywords": "visualization pitch muhammad mujtaba khalid syed 947726 solar energy power generation analysis understanding impact weather factors output research questions environmental particularly radiation temperature influence there measurable relationship levels electricity variability affect distribution stability observable patterns outliers indicate inefficiencies extreme operating conditions dataset overview sourced kaggle focuses production contains measurements related ambient generated characteristics structured tabular csv format continuous numerical variables suitable exploratory descriptive quality considerations missing values identified removed duplicate records eliminated post cleaning ensured improved reliability consistency methodology collection downloaded manually publicly available processing conducted python libraries pandas manipulation numpy operations matplotlib seaborn steps included removal observations analytical approach eda comparative trend visual inspection relationships anomalies",
+      "author": "Muhammad Mujtaba Khalid, Syed",
+      "description": "Understanding how environmental factors like solar radiation and temperature influence solar power output, using Kaggle data analyzed with Python (Pandas, NumPy, Matplotlib).",
+      "uploaded": "2026-02-03T14:00:00",
+      "tags": [
+        "kaggle",
+        "python",
+        "pandas",
+        "numpy",
+        "matplotlib",
+        "energy",
+        "eda"
+      ]
+    },
+    {
+      "title": "From Negative Interest Rates To All-Time Highs: Detailed Analysis Of The Key ECB Interest Rates Trends (01 January 1999 – 21 December 2025)",
+      "file": "KEY INTEREST RATES - DATA VISUALIZATION PITCH - EMILY PERILLO.pdf",
+      "keywords": "visualization pitch negative interest rates time highs detailed analysis key ecb trends january 1999 december 2025 image source vima international edition article cuts basis points jan emily perillo 894957 mail handled policy throughout years following work highlights evolution deposit facility rate main refinancing operations fixed option variable adopted 2000 2008 financial crisis marginal lending instruments tools european central bank deal inflation permit economic prosperity research questions purpose highlight changes introduced investigating monetary pursue objective deepens matters periods stable importantly times underlying causes whether tend follow trend quickly adapt variation contemporary perturbing force conducted datasets tenders date level euro area daily available mro dataset minimum bid raw mlf harmonized index consumer prices overall monthly hicp content published website free use limitations institution cited links affiliated must load browser entire window whenever documents sold part paid subscription users informed pieces information acquired official sources modified way explicit collected complete require cleaning operation deterministic variables remains subject inherent statistical nuances regarding basket composition quality adjustments methodology developed thanks software rstudio tableau specifically manipulation instrument tidyverse library includes ggplot code consultation github scatter plot matrix public spm adjustment needed done starting original correlated fact replaced alternative therefore appropriately merged together chronologically substitute missing values representations historical hikes better show correlation measures react complicated parts gemini pro represent followed guidance although vast majority even aspect mine",
+      "author": "Emily Perillo",
+      "description": "A historical analysis of ECB key interest rates from 1999 to 2025, tracking the evolution of the Deposit Facility, Main Refinancing Operations, and Marginal Lending Facility rates.",
+      "uploaded": "2026-02-03T11:00:00",
+      "tags": [
+        "rstudio",
+        "tableau",
+        "ggplot",
+        "economics",
+        "time-series",
+        "ecb",
+        "visualization"
+      ]
+    },
+    {
+      "title": "Heart Attack Prediction Dashboard",
+      "file": "HEART STROKE PRESENTATION (HAMZA UR REHMAN 924830).pdf",
+      "keywords": "heart attack prediction dashboard kaggle dataset attacks leading cause death globally early detection biomarkers vitals save lives explores exploratory analysis eda uncover patterns demographics age gender blood pressure sugar troponin goal visually identify risk factors support introduction source link features included systolic diastolic result positive negative records xxxx patients target variable postive overview distribution chart histogram frequency insight years old increases density plot fall normal high range 140 known factor",
+      "author": "Hamza Ur Rehman",
+      "description": "Exploratory data analysis on a Kaggle heart attack dataset, uncovering patterns in demographics, vitals, and biomarkers to identify risk factors and support early prediction.",
+      "uploaded": "2026-02-03T09:00:00",
+      "tags": [
+        "kaggle",
+        "eda",
+        "healthcare",
+        "python",
+        "visualization",
+        "dashboard",
+        "statistics"
+      ]
+    }
+  ]
+}
