@@ -34,6 +34,26 @@
   ],
   "items": [
     {
+      "title": "Global Student Migration Flow Analysis",
+      "file": "A. Student Individual Assignment - Clara Reina (1).pdf",
+      "keywords": "global student migration flow analysis clara reina international students career outcomes return on investment roi destination countries usa united kingdom canada australia germany field of study engineering computer science arts education starting salary median stem disciplines visa status work permit placement gap job opportunities higher ranking enrollment reason university kaggle dataset unesco oecd nace 2023 python pandas matplotlib seaborn data cleaning aggregation geospatial migration flows top destinations preferred big three india china push factors cc by-sa open data",
+      "author": "Clara Reina",
+      "description": "Analyzing global student migration flows and career outcomes using Kaggle data (UNESCO/OECD, NACE 2023), exploring preferred destinations, ROI by field of study, and the link between visa status and post-graduation placement.",
+      "uploaded": "2026-02-17T10:00:00",
+      "tags": [
+        "kaggle",
+        "python",
+        "pandas",
+        "matplotlib",
+        "visualization",
+        "eda",
+        "global",
+        "economics",
+        "geospatial",
+        "statistics"
+      ]
+    },
+    {
       "title": "Climate Analysis: Is Italy Warming Up?",
       "file": "Tommaso Arone Climate Change.pdf",
       "keywords": "climate analysis italy warming up tommaso arone data visualization project historical trends seasonal dynamics thermal anomalies 1901 2024 world bank climate knowledge portal temperature mean near-surface air tas tasmax tasmin seasonal mean temperatures summer spring autumn winter extreme warm days tx90p extreme cold days tn10p 90th percentile 10th percentile heating effect transitional seasons vertical translation rate of change moving averages 10-year window descriptive statistics trend analysis comparative analysis italy france spain belgium mediterranean oceanic cycles spatial analysis choropleth map global seasonal distribution python pandas numpy matplotlib seaborn plotly api data collection open data cc-by-sa",

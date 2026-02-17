@@ -776,6 +776,13 @@
         if (data.tags && data.tags.length > 0) {
           buildTagBar(data.tags);
         }
+        // Shuffle cards (Fisher-Yates)
+        for (var i = data.items.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var tmp = data.items[i];
+          data.items[i] = data.items[j];
+          data.items[j] = tmp;
+        }
         // Build cards
         data.items.forEach(function(entry) {
           var card = createCard(entry);
