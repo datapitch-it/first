@@ -165,6 +165,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#team">Who we are</a></li>
           <li><a href="#partners">Partners</a></li>
+          <li><a href="#teaching">Teaching</a></li>
           <li><a href="#contact">Contact</a></li>
           <!--
           <li><a href="#portfolio">Portfolio</a></li>
@@ -393,7 +394,73 @@
 
     <!-- Team Section -->
     <section id="team" class="team section">
+    </section>
 
+    <!-- Teaching Section -->
+    <section id="teaching" class="teaching section light-background">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Teaching</h2>
+        <p>Educational Activities</p>
+      </div>
+
+      <div class="container">
+        <!-- General info placeholder -->
+        <div class="row mb-5" data-aos="fade-up">
+          <div class="col-lg-8 mx-auto">
+            <p class="text-center text-muted">Here you may find project works created by students during training sessions in several contexts (Academia, Newsrooms, NGOs, Capacity Building sessions for citizens).</p>
+          </div>
+        </div>
+
+        <!-- Students Portfolio -->
+        <div id="students-portfolio">
+          <div class="text-center mb-4" data-aos="fade-up">
+            <h3 class="portfolio-section-title">Students Portfolio</h3>
+          </div>
+
+          <div class="row mb-4 justify-content-center" data-aos="fade-up">
+            <div class="col-md-5">
+              <div class="portfolio-search-wrapper">
+                <i class="bi bi-search"></i>
+                <input type="text" id="portfolio-search" class="form-control"
+                       placeholder="Search by name, topic or technology (min 3 chars)">
+              </div>
+              <div id="portfolio-no-results" class="text-center text-muted mt-3" style="display:none;">
+                No results found.
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-4 justify-content-center" data-aos="fade-up">
+            <div class="col-12 text-center">
+              <div id="portfolio-tags" class="portfolio-tags">
+                <!-- Tags generated dynamically from portfolio.json -->
+              </div>
+            </div>
+          </div>
+
+          <div class="row gy-4" id="portfolio-grid" data-aos="fade-up" data-aos-delay="100">
+            <!-- Cards generated dynamically from portfolio.json -->
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Teaching Section -->
+
+    <!-- PDF Viewer Modal -->
+    <div class="modal fade" id="pdfModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header pdf-modal-header">
+            <h5 class="modal-title" id="pdfModalTitle"></h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-0">
+            <iframe id="pdfModalFrame" src="" frameborder="0"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </main>
 
@@ -489,8 +556,249 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Students Portfolio: dynamic rendering, PDF thumbnails, search & tags -->
+  <script>
+  (function() {
+    var PORTFOLIO_JSON = 'teaching/portfolio.json';
+    var PDF_BASE = 'teaching/students-portfolio/';
+    var grid = document.getElementById('portfolio-grid');
+    var searchInput = document.getElementById('portfolio-search');
+    var noResults = document.getElementById('portfolio-no-results');
+    var tagsContainer = document.getElementById('portfolio-tags');
+    var activeTags = [];
+
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    function slugify(text) {
+      return text.toString().toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+    }
+
+    function createCard(entry) {
+      var col = document.createElement('div');
+      col.className = 'col-lg-4 col-md-4 col-6 portfolio-item';
+      col.dataset.studentName = (entry.author || '').toLowerCase();
+      col.dataset.title = (entry.title || '').toLowerCase();
+      col.dataset.keywords = entry.keywords || '';
+      col.dataset.tags = (entry.tags || []).join(',');
+
+      var pdfPath = PDF_BASE + encodeURIComponent(entry.file);
+      var slug = slugify(entry.title);
+      var authorHtml = entry.author
+        ? '<span class="portfolio-card-author">' + entry.author + '</span>'
+        : '';
+      var descriptionHtml = entry.description
+        ? '<p class="portfolio-card-description">' + entry.description + '</p>'
+        : '';
+      col.innerHTML =
+        '<a href="#" class="portfolio-card" data-pdf="' + pdfPath + '" data-title="' + (entry.title || '').replace(/"/g, '&quot;') + '" data-slug="' + slug + '">' +
+          '<div class="thumbnail-wrapper">' +
+            '<canvas class="pdf-thumbnail"></canvas>' +
+            '<div class="thumbnail-overlay"><i class="bi bi-file-earmark-pdf"></i></div>' +
+          '</div>' +
+          '<div class="portfolio-card-info">' +
+            authorHtml +
+            '<h4>' + entry.title + '</h4>' +
+            descriptionHtml +
+          '</div>' +
+        '</a>';
+
+      col.querySelector('a').addEventListener('click', function(e) {
+        e.preventDefault();
+        openPdfModal(this.dataset.pdf, this.dataset.title, this.dataset.slug);
+      });
+
+      return col;
+    }
+
+    function openPdfModal(pdfUrl, title, slug) {
+      document.getElementById('pdfModalTitle').textContent = title;
+      document.getElementById('pdfModalFrame').src = pdfUrl;
+      var modal = new bootstrap.Modal(document.getElementById('pdfModal'));
+      modal.show();
+      if (slug) {
+        history.pushState(null, '', '#pdf/' + slug);
+      }
+    }
+
+    // Clear iframe and restore URL when modal closes
+    document.getElementById('pdfModal').addEventListener('hidden.bs.modal', function() {
+      document.getElementById('pdfModalFrame').src = '';
+      history.pushState(null, '', window.location.pathname);
+    });
+
+    function renderThumbnail(card) {
+      var link = card.querySelector('a');
+      var pdfUrl = link.dataset.pdf;
+      var canvas = card.querySelector('.pdf-thumbnail');
+      var ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+      pdfjsLib.getDocument(pdfUrl).promise.then(function(pdf) {
+        return pdf.getPage(1);
+      }).then(function(page) {
+        var viewport = page.getViewport({ scale: 1 });
+        var scale = 300 / viewport.width;
+        viewport = page.getViewport({ scale: scale });
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        page.render({ canvasContext: ctx, viewport: viewport });
+      }).catch(function() {
+        canvas.width = 300;
+        canvas.height = 400;
+        ctx.fillStyle = '#f0f0f0';
+        ctx.fillRect(0, 0, 300, 400);
+        ctx.fillStyle = '#999';
+        ctx.font = '14px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Preview not available', 150, 200);
+      });
+    }
+
+    function buildTagBar(tags) {
+      tagsContainer.innerHTML = '';
+      tags.forEach(function(tag) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'tag-pill';
+        btn.dataset.tag = tag;
+        btn.innerHTML = tag;
+        btn.addEventListener('click', function() {
+          toggleTag(tag, btn);
+        });
+        tagsContainer.appendChild(btn);
+      });
+    }
+
+    function toggleTag(tag, btn) {
+      var idx = activeTags.indexOf(tag);
+      if (idx === -1) {
+        activeTags.push(tag);
+        btn.classList.add('active');
+        btn.innerHTML = tag + ' <i class="bi bi-x"></i>';
+      } else {
+        activeTags.splice(idx, 1);
+        btn.classList.remove('active');
+        btn.innerHTML = tag;
+      }
+      applyFilters();
+    }
+
+    function applyFilters() {
+      var query = searchInput.value.trim().toLowerCase();
+      var items = document.querySelectorAll('.portfolio-item');
+      var visibleCount = 0;
+
+      items.forEach(function(item) {
+        var matchSearch = true;
+        var matchTags = true;
+
+        // Text search (only if 3+ chars)
+        if (query.length >= 3) {
+          var title = item.dataset.title;
+          var author = item.dataset.studentName;
+          var keywords = item.dataset.keywords;
+          matchSearch = title.includes(query) || author.includes(query) || keywords.includes(query);
+        }
+
+        // Tag filter (AND: all active tags must be present)
+        if (activeTags.length > 0) {
+          var itemTags = item.dataset.tags.split(',');
+          matchTags = activeTags.every(function(t) {
+            return itemTags.indexOf(t) !== -1;
+          });
+        }
+
+        var visible = matchSearch && matchTags;
+        item.style.display = visible ? '' : 'none';
+        if (visible) visibleCount++;
+      });
+
+      noResults.style.display = visibleCount === 0 ? '' : 'none';
+      updateTagAvailability();
+    }
+
+    function updateTagAvailability() {
+      // Collect tags from currently visible items
+      var availableTags = {};
+      document.querySelectorAll('.portfolio-item').forEach(function(item) {
+        if (item.style.display === 'none') return;
+        var itemTags = item.dataset.tags.split(',');
+        itemTags.forEach(function(t) {
+          if (t) availableTags[t] = true;
+        });
+      });
+
+      // Hide tags with no co-occurrence, keep active ones visible
+      tagsContainer.querySelectorAll('.tag-pill').forEach(function(btn) {
+        var tag = btn.dataset.tag;
+        var isActive = activeTags.indexOf(tag) !== -1;
+        btn.style.display = (isActive || availableTags[tag]) ? '' : 'none';
+      });
+    }
+
+    function openFromHash() {
+      var hash = window.location.hash;
+      if (hash.indexOf('#pdf/') === 0) {
+        var slug = hash.substring(5);
+        var link = document.querySelector('.portfolio-card[data-slug="' + slug + '"]');
+        if (link) {
+          openPdfModal(link.dataset.pdf, link.dataset.title, link.dataset.slug);
+        }
+      }
+    }
+
+    window.addEventListener('popstate', function() {
+      var hash = window.location.hash;
+      if (hash.indexOf('#pdf/') === 0) {
+        openFromHash();
+      } else {
+        var modalEl = document.getElementById('pdfModal');
+        var modalInstance = bootstrap.Modal.getInstance(modalEl);
+        if (modalInstance) {
+          modalInstance.hide();
+        }
+      }
+    });
+
+    fetch(PORTFOLIO_JSON)
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        // Build tag bar
+        if (data.tags && data.tags.length > 0) {
+          buildTagBar(data.tags);
+        }
+        // Shuffle cards (Fisher-Yates)
+        for (var i = data.items.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var tmp = data.items[i];
+          data.items[i] = data.items[j];
+          data.items[j] = tmp;
+        }
+        // Build cards
+        data.items.forEach(function(entry) {
+          var card = createCard(entry);
+          grid.appendChild(card);
+          renderThumbnail(card);
+        });
+        // Auto-open PDF if hash is present on page load
+        openFromHash();
+      })
+      .catch(function(err) {
+        grid.innerHTML = '<div class="col-12 text-center text-muted">Failed to load portfolio data.</div>';
+      });
+
+    searchInput.addEventListener('input', applyFilters);
+  })();
+  </script>
 
 </body>
 
