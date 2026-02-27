@@ -34,6 +34,26 @@
   ],
   "items": [
     {
+      "title": "Digital Inclusion in Europe: Household Internet Access Over Time",
+      "file": "Digital_Inclusion_in_Europe_Indra-Theodora_Catana.pdf",
+      "keywords": "digital inclusion europe household internet access over time indra-theodora catana eu priorities 2019 2024 digital age ict information communication technologies eurostat isoc ci in h 38 countries eu partner countries annual survey national statistical institutes estimates proportions household composition dependent children without children 2002 2025 time series trend analysis descriptive statistics comparative analysis mean distribution min max evolution differences between countries python pandas matplotlib data cleaning aggregation yearly averages open data cc by 4.0 reproducible",
+      "author": "Indra-Theodora Catana",
+      "description": "Analyzing household internet access across 38 EU and partner countries from 2002 to 2025 using Eurostat survey data, exploring time trends, cross-country disparities, and the role of household composition in digital inclusion.",
+      "uploaded": "2026-02-27T12:00:00",
+      "tags": [
+        "python",
+        "pandas",
+        "matplotlib",
+        "eurostat",
+        "open-data",
+        "global",
+        "time-series",
+        "visualization",
+        "eda",
+        "statistics"
+      ]
+    },
+    {
       "title": "GPS Performance Analysis of the 2025 Formula Kite World Championships Final",
       "file": "GPS Analysis of the 2025 Formula Kite World Championships - Presentation.pdf",
       "keywords": "gps performance analysis formula kite world championships 2025 final first upwind leg nicolò nucci riccardo pianosi maximilian maeder speed over ground sog velocity made good vmg tacking manoeuvres acceleration curvature radius distance lost recovery time start phase upwind progression gpx tracks metasail.it latitude longitude geo-referenced coordinates racecourse geometry trigonometric offsets 2d metric system kinematic descriptive methods radar plots trajectory maps python gpxpy numpy matplotlib reproducible open data github sports sailing kiteboarding foil",
