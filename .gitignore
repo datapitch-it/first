@@ -1,2 +1,38 @@
 update-portfolio.py
 .venv/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.directory
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+env/
+.env
+
+# Backup files
+*.bak
+*.orig
+*.tmp
+
+# Node (if you ever use npm/build tools)
+node_modules/
+npm-debug.log*
+yarn-error.log
+
+# Logs
+*.log
