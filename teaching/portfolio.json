@@ -34,6 +34,45 @@
   ],
   "items": [
     {
+      "title": "GPS Performance Analysis of the 2025 Formula Kite World Championships Final",
+      "file": "GPS Analysis of the 2025 Formula Kite World Championships - Presentation.pdf",
+      "keywords": "gps performance analysis formula kite world championships 2025 final first upwind leg nicolò nucci riccardo pianosi maximilian maeder speed over ground sog velocity made good vmg tacking manoeuvres acceleration curvature radius distance lost recovery time start phase upwind progression gpx tracks metasail.it latitude longitude geo-referenced coordinates racecourse geometry trigonometric offsets 2d metric system kinematic descriptive methods radar plots trajectory maps python gpxpy numpy matplotlib reproducible open data github sports sailing kiteboarding foil",
+      "author": "Nicolò Nucci",
+      "description": "A GPS-based kinematic analysis comparing the top two finalists (Pianosi and Maeder) of the 2025 Formula Kite World Championships, examining start patterns, tacking manoeuvres, VMG loss, and upwind performance using GPX tracks from metasail.it.",
+      "uploaded": "2026-02-27T10:00:00",
+      "tags": [
+        "python",
+        "numpy",
+        "matplotlib",
+        "geospatial",
+        "sports",
+        "visualization",
+        "statistics",
+        "eda"
+      ]
+    },
+    {
+      "title": "Electricity Around the World",
+      "file": "UmbertoArtusoDataViz.pdf",
+      "keywords": "electricity around the world umberto artuso 872032 data visualization pitch energy sources production mix emissions fuels 2000 2024 25 years 200 geographies ember yearly electricity data generation capacity demand import wind hydro solar nuclear bioenergy gas coal other fossils renewable transition cleaner energy mix co2 emissions mtco2 twh gw capacity generation top emitters outliers trend spotting top-down approach python pandas numpy matplotlib plotly jupyter notebook data cleaning normalization geographical subset aggregation open data reproducible",
+      "author": "Umberto Artuso",
+      "description": "Exploring 25 years of global electricity data (2000-2024) across 200+ geographies using Ember's open dataset, comparing energy mixes by fuel type, tracking the renewable transition, and identifying the countries driving or lagging behind on emissions.",
+      "uploaded": "2026-02-27T09:00:00",
+      "tags": [
+        "python",
+        "pandas",
+        "numpy",
+        "matplotlib",
+        "energy",
+        "climate",
+        "global",
+        "time-series",
+        "visualization",
+        "eda",
+        "open-data"
+      ]
+    },
+    {
       "title": "Global Student Migration Flow Analysis",
       "file": "A. Student Individual Assignment - Clara Reina (1).pdf",
       "keywords": "global student migration flow analysis clara reina international students career outcomes return on investment roi destination countries usa united kingdom canada australia germany field of study engineering computer science arts education starting salary median stem disciplines visa status work permit placement gap job opportunities higher ranking enrollment reason university kaggle dataset unesco oecd nace 2023 python pandas matplotlib seaborn data cleaning aggregation geospatial migration flows top destinations preferred big three india china push factors cc by-sa open data",
