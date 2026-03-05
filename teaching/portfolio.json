@@ -34,6 +34,49 @@
   ],
   "items": [
     {
+      "title": "The Pressure Game: Beyond Expected Goals, the Hidden Side of Serie A",
+      "file": "LorenzoZanotti - DataViz.pdf",
+      "keywords": "pressure game beyond expected goals hidden side serie a lorenzo zanotti unimib 902652 tactical identity efficiency analysis tactical evolution pca principal component analysis k-means clustering four tactical archetypes elite volume generators passive defenders pragmatic controllers strugglers xg expected goals xga expected goals against dc deep completions odc opponent deep completions ppda passes allowed per defensive action pressing intensity xpts expected points z-score normalization percentile ranking milan case study 2024 2025 serie a 2025 2026 understat python pandas numpy scikit-learn matplotlib seaborn tableau differential analysis regex extraction reproducible github sports football calcio italy",
+      "author": "Lorenzo Zanotti",
+      "description": "Using PCA and K-means clustering on Understat tactical metrics (xG, xGA, PPDA, DC) to reveal four distinct tactical archetypes in Serie A 2024/25, and a Milan case study showing how data-driven adjustments reversed underperformance.",
+      "uploaded": "2026-03-05T12:00:00",
+      "tags": [
+        "python",
+        "pandas",
+        "numpy",
+        "matplotlib",
+        "sports",
+        "visualization",
+        "statistics",
+        "eda",
+        "italy"
+      ]
+    },
+    {
+      "title": "The Green Divide: Europe's Two-Speed Transition to 2030",
+      "file": "Lorenzo_Lecci_The_Green_Divide.pdf",
+      "keywords": "green divide europe two-speed transition 2030 lorenzo lecci european green deal renewable energy share import dependency north south gap trajectory dynamics anatomy sectors electricity transport geopolitics russia gas crisis 2022 shield italy decoupling fossil fuels oil natural gas eurostat nrg_ind_ren nrg_ind_id unece sdg indicator 7.2.1 our world in data owid iso-3166 country codes red ii directive statistical break norway outlier negative dependency choropleth map datawrapper flourish python jupyter notebook etl pipeline sdmx api requests cc by 4.0 open data reproducible github time series trend analysis comparative analysis geospatial energy climate",
+      "author": "Lorenzo Lecci",
+      "description": "Investigating whether Europe is converging toward a unified energy model or widening a structural 'Green Divide' between the resource-rich North and the rest, using Eurostat, UNECE, and OWID data across four analytical dimensions: trajectory, sectors, geopolitics, and Italy focus.",
+      "uploaded": "2026-03-05T10:00:00",
+      "tags": [
+        "python",
+        "pandas",
+        "matplotlib",
+        "eurostat",
+        "open-data",
+        "energy",
+        "climate",
+        "global",
+        "time-series",
+        "geospatial",
+        "visualization",
+        "eda",
+        "statistics",
+        "italy"
+      ]
+    },
+    {
       "title": "Digital Inclusion in Europe: Household Internet Access Over Time",
       "file": "Digital_Inclusion_in_Europe_Indra-Theodora_Catana.pdf",
       "keywords": "digital inclusion europe household internet access over time indra-theodora catana eu priorities 2019 2024 digital age ict information communication technologies eurostat isoc ci in h 38 countries eu partner countries annual survey national statistical institutes estimates proportions household composition dependent children without children 2002 2025 time series trend analysis descriptive statistics comparative analysis mean distribution min max evolution differences between countries python pandas matplotlib data cleaning aggregation yearly averages open data cc by 4.0 reproducible",
