@@ -34,6 +34,93 @@
   ],
   "items": [
     {
+      "title": "Imprisonment Trends and Prison Capacity in Europe: A Comparative Regional Analysis (2014-2023)",
+      "file": "947496 (Md. Shakhawat Hossen).pdf",
+      "keywords": "imprisonment trends prison capacity europe comparative regional analysis 2014 2023 md shakhawat hossen 947496 european countries convergence divergence structural regional covid-19 factors northern southern eastern western europe official prison capacity actual prison population per 100000 inhabitants country year annual time series eurostat prison statistics incarceration rates pandemic impact 2020 2022 missing country-year entries nuts-0 national level open data eu open data license",
+      "author": "Md. Shakhawat Hossen",
+      "description": "Analyzing whether European imprisonment systems converge or diverge over 2014-2023, examining regional patterns across Northern, Southern, Eastern, and Western Europe and the COVID-19 impact on prison populations using Eurostat data.",
+      "uploaded": "2026-03-10T10:00:00",
+      "tags": [
+        "eurostat",
+        "open-data",
+        "global",
+        "time-series",
+        "visualization",
+        "statistics",
+        "eda"
+      ]
+    },
+    {
+      "title": "More People Online, But Unequal Access Across Age, Education, and Devices in Europe",
+      "file": "Data Visualization pitch of unequal access of internet in Europe by Sohanur Rahman.pdf",
+      "keywords": "digital divide internet access europe unequal age education devices sohanur rahman 947961 household internet access eu countries urbanization rural urban cities towns suburbs broadband 2007 2024 devices desktop laptop tablet mobile smartphone 2016 2023 e-government e-commerce eurostat isoc digital inclusion progress fastest slowest universal access age groups education levels time series comparative analysis visualization",
+      "author": "Sohanur Rahman",
+      "description": "Investigating the digital divide in EU household internet access (2007-2024) across urbanization levels, age groups, education levels, and device types, identifying which countries show fastest and slowest progress toward universal connectivity.",
+      "uploaded": "2026-03-10T09:00:00",
+      "tags": [
+        "eurostat",
+        "open-data",
+        "global",
+        "time-series",
+        "visualization",
+        "statistics",
+        "eda"
+      ]
+    },
+    {
+      "title": "Winter Wheat Volatility in the Wake of the Russia-Ukraine War",
+      "file": "Data Vizualization Project - Takudzwa Rioga 946902.pdf",
+      "keywords": "winter wheat volatility russia ukraine war takudzwa rioga 946902 global wheat trade prices 2000 2025 february 2022 invasion commodity market supply shocks food system export void import dependent regions strategic stockpiling price spike normalization global winter wheat price imf international monetary fund fred federal reserve bank st louis pwheamtusdm who gained most disrupted supply ukraine wheat industry recovery production capacity geopolitics trade economics time series",
+      "author": "Takudzwa Rioga",
+      "description": "Examining the economic effects of the Russia-Ukraine war on global wheat trade, mapping price volatility (2000-2025), trade displacement, import-dependent regions, and Ukraine's production recovery using IMF/FRED data.",
+      "uploaded": "2026-03-10T08:00:00",
+      "tags": [
+        "economics",
+        "trade",
+        "global",
+        "time-series",
+        "visualization",
+        "eda",
+        "open-data"
+      ]
+    },
+    {
+      "title": "When Health Outpaces Wealth: A Data-Driven Analysis of Global Longevity and Economic Prosperity (1950-2022)",
+      "file": "Health Outpaces Wealth.pdf",
+      "keywords": "health outpaces wealth global longevity economic prosperity 1950 2022 abbas mkhzomi 946945 life expectancy gdp per capita our world in data owid six world regions africa asia europe north america oceania south america relationship wealth health correlation public health transformations economic shifts disparities outliers anomalies historical evolution regional comparative trend analysis time series visualization",
+      "author": "Abbas Mkhzomi",
+      "description": "Analyzing how the relationship between global economic wealth (GDP per capita) and life expectancy evolved from 1950 to 2022 across six major world regions, highlighting public health transformations and outlier cases using Our World in Data.",
+      "uploaded": "2026-03-10T07:00:00",
+      "tags": [
+        "economics",
+        "healthcare",
+        "global",
+        "time-series",
+        "visualization",
+        "statistics",
+        "eda",
+        "open-data"
+      ]
+    },
+    {
+      "title": "The Volume Trap: Scale vs. Efficiency in Post-Pandemic European Tourism",
+      "file": "2026-02-25 Master Toursim Diagnostic v2.pdf",
+      "keywords": "volume trap scale efficiency post-pandemic european tourism ali haider 948092 eu tourism recovery 2019 2023 eurostat tour_occ_ninat tin00196 nights spent accommodation expenditure per night economic yield physical tourism load mass giants premium niche volume trap zone emerging value cluster eu median thresholds 42 million nights 83 euros post-covid efficiency delta load share structural inefficiencies germany france italy spain 65 percent eu tourism load country-year nuts-0 nominal expenditure feature engineering quadrant analysis scatter plot bubble chart",
+      "author": "Ali Haider",
+      "description": "Evaluating whether EU tourism recovery post-COVID is aligned with economic efficiency or trapped in volume, comparing nights spent vs. average expenditure per night across EU member states (2019-2023) using Eurostat data.",
+      "uploaded": "2026-02-25T12:00:00",
+      "tags": [
+        "eurostat",
+        "open-data",
+        "tourism",
+        "economics",
+        "visualization",
+        "statistics",
+        "global",
+        "eda"
+      ]
+    },
+    {
       "title": "The Pressure Game: Beyond Expected Goals, the Hidden Side of Serie A",
       "file": "LorenzoZanotti - DataViz.pdf",
       "keywords": "pressure game beyond expected goals hidden side serie a lorenzo zanotti unimib 902652 tactical identity efficiency analysis tactical evolution pca principal component analysis k-means clustering four tactical archetypes elite volume generators passive defenders pragmatic controllers strugglers xg expected goals xga expected goals against dc deep completions odc opponent deep completions ppda passes allowed per defensive action pressing intensity xpts expected points z-score normalization percentile ranking milan case study 2024 2025 serie a 2025 2026 understat python pandas numpy scikit-learn matplotlib seaborn tableau differential analysis regex extraction reproducible github sports football calcio italy",
