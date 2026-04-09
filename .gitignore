@@ -10,6 +10,9 @@ ehthumbs.db
 Desktop.ini
 .directory
 
+# Claude Code
+.claude/
+
 # Editor / IDE
 .vscode/
 .idea/
