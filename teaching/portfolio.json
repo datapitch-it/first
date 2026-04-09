@@ -34,6 +34,28 @@
   ],
   "items": [
     {
+      "title": "Global Burden of Disease to SDI Analysis: Socio-Demographic Index Trends (1950–2021)",
+      "file": "Data Visualization Report.pdf",
+      "keywords": "global burden of disease sdi socio-demographic index trends 1950 2021 abdul sami 939542 ihme institute health metrics evaluation gbd 2021 204 countries territories annual sdi education income per capita fertility rate italy trajectory global regional peers composite indicator geometric mean development level time series normalization scaling line charts regional comparisons convergence divergence acceleration stagnation python pandas matplotlib seaborn open data reproducible github",
+      "author": "Abdul Sami",
+      "description": "Analyzing the evolution of the Socio-Demographic Index (SDI) from 1950 to 2021 across 204 countries using IHME Global Burden of Disease Study 2021 data, comparing Italy's trajectory with global and regional peers across education, income per capita, and fertility dimensions.",
+      "uploaded": "2026-04-09T10:00:00",
+      "tags": [
+        "python",
+        "pandas",
+        "matplotlib",
+        "healthcare",
+        "global",
+        "time-series",
+        "geospatial",
+        "visualization",
+        "statistics",
+        "eda",
+        "italy",
+        "open-data"
+      ]
+    },
+    {
       "title": "Imprisonment Trends and Prison Capacity in Europe: A Comparative Regional Analysis (2014-2023)",
       "file": "947496 (Md. Shakhawat Hossen).pdf",
       "keywords": "imprisonment trends prison capacity europe comparative regional analysis 2014 2023 md shakhawat hossen 947496 european countries convergence divergence structural regional covid-19 factors northern southern eastern western europe official prison capacity actual prison population per 100000 inhabitants country year annual time series eurostat prison statistics incarceration rates pandemic impact 2020 2022 missing country-year entries nuts-0 national level open data eu open data license",
