@@ -34,6 +34,25 @@
   ],
   "items": [
     {
+      "title": "Students Academic Performance: Does Parents' Education Matter?",
+      "file": "Data Visualization Final PDF.pdf",
+      "author": "Hussein Shamas",
+      "description": "Investigating whether parental education level influences students' academic performance in math, reading, and writing, and how this interacts with gender and test preparation course completion, using the Kaggle 'Students Performance in Exams' dataset (1000+ students).",
+      "uploaded": "2026-04-19T10:00:00",
+      "keywords": "students academic performance parental education matter hussein shamas 946916 unimib kaggle students performance exams math reading writing scores gender test preparation course bachelor master associate high school some college descriptive statistics boxplots comparative analysis stratified analysis average score total score derived variables distribution histogram normal bell curve outliers score range 60 80 higher education higher scores reading writing stronger correlation than math girls outperform boys reading writing test prep boosts scores all groups python pandas numpy matplotlib seaborn jupyter notebook data cleaning missing values categorical encoding reproducible github cc by 4.0 open data education policy school administrators policymakers academic performance gap",
+      "tags": [
+        "kaggle",
+        "python",
+        "pandas",
+        "numpy",
+        "matplotlib",
+        "eda",
+        "statistics",
+        "visualization",
+        "healthcare"
+      ]
+    },
+    {
       "title": "Global Burden of Disease to SDI Analysis: Socio-Demographic Index Trends (1950–2021)",
       "file": "Data Visualization Report.pdf",
       "keywords": "global burden of disease sdi socio-demographic index trends 1950 2021 abdul sami 939542 ihme institute health metrics evaluation gbd 2021 204 countries territories annual sdi education income per capita fertility rate italy trajectory global regional peers composite indicator geometric mean development level time series normalization scaling line charts regional comparisons convergence divergence acceleration stagnation python pandas matplotlib seaborn open data reproducible github",
