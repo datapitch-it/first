@@ -1,0 +1,14 @@
+# ── Credenziali (MAI committare) ──────────────────────────
+data/credentials.json
+
+# ── Dati raw / temporanei (privati o troppo grandi) ───────
+data/posts.json
+data/posts.json.backup
+data/fullexport.json
+data/extracted_data.json.backup
+
+# ── Script di scraping (privati) ──────────────────────────
+scripts/
+
+# ── Documentazione interna (fa riferimento all'API privata)
+README.md
