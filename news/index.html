@@ -791,24 +791,57 @@
 
     function mediaHtml(item) {
       if (!item.media_url) return '';
-      const base = item.urn ? DATA_BASE + 'data/media/' + item.urn.replace(/:/g,'_').replace(/\//g,'_') : null;
-      const localJpg  = base ? base + '.jpg' : null;
-      const remoteUrl = item.media_url.replace(/"/g, '');
-      const imgSrc    = localJpg || remoteUrl;
-      const imgFallback = localJpg && remoteUrl !== localJpg
-        ? `this.src='${remoteUrl}';this.onerror=this.style.display='none';`
-        : `this.style.display='none';`;
 
-      if (item.media_type === 'video' && base) {
-        const localMp4 = base + '.mp4';
-        return `<div class="post-media-wrap">
-          <video class="post-media" controls preload="none" poster="${imgSrc}"
-            onerror="this.outerHTML='<img src=\\'${imgSrc}\\' class=\\'post-media\\' onerror=\\'${imgFallback}\\'>'">
-            <source src="${localMp4}" type="video/mp4">
-          </video>
+      const fname    = item.urn ? item.urn.replace(/:/g,'_').replace(/\//g,'_') : null;
+      const base     = fname ? DATA_BASE + 'data/media/' + fname : null;
+      const localJpg = base ? base + '.jpg' : null;
+      const localMp4 = base ? base + '.mp4' : null;
+
+      // remoteUrl is only usable if it's a full http URL (LinkedIn CDN URLs expire)
+      const rawUrl   = (item.media_url || '').replace(/"/g, '');
+      const remoteUrl = rawUrl.startsWith('http') ? rawUrl : null;
+
+      if (item.media_type === 'video') {
+        // Case 1: have local mp4 → proper video player
+        if (localMp4) {
+          const poster = localJpg || remoteUrl || '';
+          return `<div class="post-media-wrap">
+            <video class="post-media" controls preload="none"${poster ? ` poster="${poster}"` : ''}>
+              <source src="${localMp4}" type="video/mp4">
+            </video>
+          </div>`;
+        }
+        // Case 2: have local jpg thumbnail → show it with a play badge
+        if (localJpg) {
+          return `<div class="post-media-wrap" style="position:relative;">
+            <img src="${localJpg}" class="post-media" loading="lazy" onerror="this.style.display='none'">
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.45);border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+              <i class="bi bi-play-fill" style="color:#fff;font-size:1.6rem;margin-left:3px;"></i>
+            </div>
+          </div>`;
+        }
+        // Case 3: only a valid remote thumbnail URL
+        if (remoteUrl) {
+          return `<div class="post-media-wrap" style="position:relative;">
+            <img src="${remoteUrl}" class="post-media" loading="lazy" onerror="this.style.display='none'">
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.45);border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+              <i class="bi bi-play-fill" style="color:#fff;font-size:1.6rem;margin-left:3px;"></i>
+            </div>
+          </div>`;
+        }
+        // Case 4: no local file, no valid URL → show a minimal video badge only
+        return `<div class="post-links" style="color:#aaa;font-size:0.78rem;">
+          <i class="bi bi-play-circle"></i> Video non disponibile localmente
+          ${item.urn ? `— <a href="https://www.linkedin.com/feed/update/${item.urn}/" target="_blank" rel="noopener">guarda su LinkedIn</a>` : ''}
         </div>`;
       }
 
+      // Non-video: image or doc cover
+      const imgSrc = localJpg || remoteUrl;
+      if (!imgSrc) return '';
+      const imgFallback = localJpg && remoteUrl
+        ? `this.src='${remoteUrl}';this.onerror=this.style.display='none';`
+        : `this.style.display='none';`;
       return `<div class="post-media-wrap">
         <img src="${imgSrc}" class="post-media" loading="lazy" onerror="${imgFallback}">
       </div>`;
