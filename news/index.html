@@ -520,6 +520,7 @@
     const MONTHS_FULL  = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
 
     let originalData = [];
+    let mediaIndex = {};
     let selectedYears = new Set();
     let selectedMonths = new Set();
     let selectedMediaType = null;
@@ -540,8 +541,12 @@
 
     async function fetchData() {
       try {
-        const response = await fetch(DATA_BASE + 'data/extracted_data.json');
-        originalData = await response.json();
+        const [dataRes, indexRes] = await Promise.all([
+          fetch(DATA_BASE + 'data/extracted_data.json'),
+          fetch(DATA_BASE + 'data/media_index.json'),
+        ]);
+        originalData = await dataRes.json();
+        mediaIndex   = await indexRes.json();
         buildSidebar();
         buildStats();
         applyFilters();
@@ -789,62 +794,62 @@
       scrollToHash();
     }
 
+    const PLAY_BADGE = `<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.45);border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;pointer-events:none;"><i class="bi bi-play-fill" style="color:#fff;font-size:1.6rem;margin-left:3px;"></i></div>`;
+
     function mediaHtml(item) {
-      if (!item.media_url) return '';
+      if (!item.media_url && item.media_type !== 'video') return '';
 
       const fname    = item.urn ? item.urn.replace(/:/g,'_').replace(/\//g,'_') : null;
+      const exts     = fname ? (mediaIndex[fname] || []) : [];
+      const hasJpg   = exts.includes('jpg');
+      const hasMp4   = exts.includes('mp4');
       const base     = fname ? DATA_BASE + 'data/media/' + fname : null;
-      const localJpg = base ? base + '.jpg' : null;
-      const localMp4 = base ? base + '.mp4' : null;
 
-      // remoteUrl is only usable if it's a full http URL (LinkedIn CDN URLs expire)
-      const rawUrl   = (item.media_url || '').replace(/"/g, '');
+      const rawUrl    = (item.media_url || '').replace(/"/g, '');
       const remoteUrl = rawUrl.startsWith('http') ? rawUrl : null;
 
       if (item.media_type === 'video') {
-        // Case 1: have local mp4 → proper video player
-        if (localMp4) {
-          const poster = localJpg || remoteUrl || '';
+        if (hasMp4) {
+          const poster = hasJpg ? ` poster="${base}.jpg"` : (remoteUrl ? ` poster="${remoteUrl}"` : '');
           return `<div class="post-media-wrap">
-            <video class="post-media" controls preload="none"${poster ? ` poster="${poster}"` : ''}>
-              <source src="${localMp4}" type="video/mp4">
+            <video class="post-media" controls preload="none"${poster}>
+              <source src="${base}.mp4" type="video/mp4">
             </video>
           </div>`;
         }
-        // Case 2: have local jpg thumbnail → show it with a play badge
-        if (localJpg) {
+        if (hasJpg) {
           return `<div class="post-media-wrap" style="position:relative;">
-            <img src="${localJpg}" class="post-media" loading="lazy" onerror="this.style.display='none'">
-            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.45);border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;pointer-events:none;">
-              <i class="bi bi-play-fill" style="color:#fff;font-size:1.6rem;margin-left:3px;"></i>
-            </div>
+            <img src="${base}.jpg" class="post-media" loading="lazy">
+            ${PLAY_BADGE}
           </div>`;
         }
-        // Case 3: only a valid remote thumbnail URL
         if (remoteUrl) {
           return `<div class="post-media-wrap" style="position:relative;">
-            <img src="${remoteUrl}" class="post-media" loading="lazy" onerror="this.style.display='none'">
-            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.45);border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;pointer-events:none;">
-              <i class="bi bi-play-fill" style="color:#fff;font-size:1.6rem;margin-left:3px;"></i>
-            </div>
+            <img src="${remoteUrl}" class="post-media" loading="lazy" onerror="this.parentElement.style.display='none'">
+            ${PLAY_BADGE}
           </div>`;
         }
-        // Case 4: no local file, no valid URL → show a minimal video badge only
-        return `<div class="post-links" style="color:#aaa;font-size:0.78rem;">
-          <i class="bi bi-play-circle"></i> Video non disponibile localmente
-          ${item.urn ? `— <a href="https://www.linkedin.com/feed/update/${item.urn}/" target="_blank" rel="noopener">guarda su LinkedIn</a>` : ''}
+        return `<div style="padding:6px 16px 10px;font-size:0.76rem;color:#aaa;">
+          <i class="bi bi-play-circle"></i> Video non disponibile
+          ${item.urn ? ` — <a href="https://www.linkedin.com/feed/update/${item.urn}/" target="_blank" rel="noopener">guarda su LinkedIn</a>` : ''}
         </div>`;
       }
 
-      // Non-video: image or doc cover
-      const imgSrc = localJpg || remoteUrl;
-      if (!imgSrc) return '';
-      const imgFallback = localJpg && remoteUrl
-        ? `this.src='${remoteUrl}';this.onerror=this.style.display='none';`
-        : `this.style.display='none';`;
-      return `<div class="post-media-wrap">
-        <img src="${imgSrc}" class="post-media" loading="lazy" onerror="${imgFallback}">
-      </div>`;
+      // image / doc
+      if (hasJpg) {
+        const fallback = remoteUrl
+          ? `this.src='${remoteUrl}';this.onerror=this.style.display='none';`
+          : `this.style.display='none';`;
+        return `<div class="post-media-wrap">
+          <img src="${base}.jpg" class="post-media" loading="lazy" onerror="${fallback}">
+        </div>`;
+      }
+      if (remoteUrl) {
+        return `<div class="post-media-wrap">
+          <img src="${remoteUrl}" class="post-media" loading="lazy" onerror="this.style.display='none'">
+        </div>`;
+      }
+      return '';
     }
 
     function escapeHtml(str) {
