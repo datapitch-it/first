@@ -799,6 +799,28 @@
       });
 
       scrollToHash();
+      attachVideoObserver();
+    }
+
+    let videoObserver = null;
+
+    function attachVideoObserver() {
+      if (videoObserver) videoObserver.disconnect();
+
+      videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('video.autoplay-video').forEach(v => {
+        videoObserver.observe(v);
+      });
     }
 
     const PLAY_BADGE = `<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.45);border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;pointer-events:none;"><i class="bi bi-play-fill" style="color:#fff;font-size:1.6rem;margin-left:3px;"></i></div>`;
@@ -819,7 +841,7 @@
         if (hasMp4) {
           const poster = hasJpg ? ` poster="${base}.jpg"` : (remoteUrl ? ` poster="${remoteUrl}"` : '');
           return `<div class="post-media-wrap">
-            <video class="post-media" controls preload="none"${poster}>
+            <video class="post-media autoplay-video" controls muted preload="none"${poster}>
               <source src="${base}.mp4" type="video/mp4">
             </video>
           </div>`;
