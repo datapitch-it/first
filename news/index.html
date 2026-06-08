@@ -775,8 +775,6 @@
           html += `<div class="post-text">${escapeHtml(item.text)}</div>`;
         }
 
-        html += mediaHtml(item);
-
         const hasLinks = item.link || item['inline-url']?.length > 0 || item.urn;
         if (hasLinks) {
           html += `<div class="post-links">`;
@@ -789,10 +787,11 @@
           if (item.urn) {
             const liUrl = `https://www.linkedin.com/feed/update/${item.urn}/`;
             html += `<div><a href="${liUrl}" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i> Apri su LinkedIn</a></div>`;
-            html += `<div class="post-urn">${item.urn}</div>`;
           }
           html += `</div>`;
         }
+
+        html += mediaHtml(item);
 
         div.innerHTML = html;
         container.appendChild(div);
