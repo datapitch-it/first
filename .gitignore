@@ -1,6 +1,14 @@
 update-portfolio.py
 .venv/
 
+# Template pages not in use
+blog.html
+blog-details.html
+portfolio-details.html
+service-details.html
+starter-page.html
+forms/
+
 # OS files
 .DS_Store
 .DS_Store?
